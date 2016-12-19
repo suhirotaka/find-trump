@@ -1,0 +1,17 @@
+#find-trump-popup {
+  width: 100px;
+  height: 50px;
+  background-color: gray;
+  display: none;
+  position: absolute;
+}
+#find-trump-popup:after {
+  border-top: 12px solid gray;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  content: '';
+  margin-left: -10px;
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+}

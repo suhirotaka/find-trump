@@ -39,7 +39,16 @@ $(function() {
     let imgIndex = getRandInt(0, $imgs.length);
     let $targetImg = $($imgs[imgIndex]);
     $targetImg.attr({ src:  chrome.extension.getURL('imgs/trump/' + TRUMP_IMGS[getRandInt(0, TRUMP_IMGS.length - 1)]) });
+
+    $('<div id="find-trump-popup">test</div>').appendTo('body');
+
+    let alreadyClicked = false;
     $targetImg.click(function(event) {
+      if (alreadyClicked) {
+//        return true;
+        return false;
+      }
+      alreadyClicked = true;
       chrome.storage.local.get('score', function(response) {
         let oldScore = response.score ? parseInt(response.score) : 0;
         let newScore = (oldScore + 1);
@@ -47,12 +56,15 @@ $(function() {
         chrome.storage.local.set({ score: newScore }, function(response) {
           console.log('savedtostorage');
         });
-        $hitPopup = $('<div class="hit-popup">test</div>');
-        $hitPopup.css('left', event.pageX);
-        $hitPopup.css('top', event.pageY);
+        $hitPopup = $('#find-trump-popup');
+        $hitPopup.html('You hit!<br />Score:' + newScore);
+        let popupWidthMatched = $hitPopup.css('width').match(/[0-9]+/);
+        let popupWidth = popupWidthMatched ? popupWidthMatched[0] : 0;
+        let popupHeightMatched = $hitPopup.css('height').match(/[0-9]+/);
+        let popupHeight = popupHeightMatched ? popupHeightMatched[0] : 0;
+        $hitPopup.css('left', event.pageX - popupWidth / 2);
+        $hitPopup.css('top', event.pageY - popupHeight - 10); // :after擬似要素のmarginをハードコーディング
         $hitPopup.css('display', 'inline');
-        $hitPopup.css('position', 'absolute');
-        $hitPopup.appendTo('body');
       });
       return false;
     });
