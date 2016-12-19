@@ -1,5 +1,6 @@
 var fs = require('fs');
 var client = require('cheerio-httpcli');
+var crypto = require('crypto');
 
 client.download
 .on('ready', function(stream) {
@@ -10,8 +11,10 @@ client.download
     return;
   }
   var extension = matched[1];
-  var fileName = stream.url.href.replace(/\//g, '-', 'g') + '.' + extension;
-  stream.pipe(fs.createWriteStream('./imgs/trump/' + fileName));
+  var md5Hash = crypto.createHash('md5');
+  md5Hash.update(stream.url.href, 'binary');
+  var fileName = md5Hash.digest('hex');
+  stream.pipe(fs.createWriteStream('./imgs/trump/' + fileName + '.' + extension));
   console.log('successfully downloaded ' + stream.url.href);
 })
 .on('error', function(err) {

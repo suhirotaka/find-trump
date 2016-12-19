@@ -23,5 +23,11 @@
   ],
   "permissions": [
     "storage", "*://*/*"
+  ],
+  "web_accessible_resources": [
+    "imgs/trump/*.png",
+    "imgs/trump/*.gif",
+    "imgs/trump/*.jpeg",
+    "imgs/trump/*.jpg"
   ]
 }
