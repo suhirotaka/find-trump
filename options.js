@@ -7,7 +7,6 @@ $(function() {
   $('#select-prob').change(function() {
     let newProb = $('#select-prob').find(':selected').val();
     chrome.storage.sync.set({ prob: newProb }, function(response) {
-      console.log('savedtostorage prob');
     });
   });
 });

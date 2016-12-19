@@ -45,15 +45,13 @@ $(function() {
     let alreadyClicked = false;
     $targetImg.click(function(event) {
       if (alreadyClicked) {
-//        return true;
-        return false;
+        return true;
       }
       alreadyClicked = true;
       chrome.storage.sync.get('score', function(response) {
         let oldScore = response.score ? parseInt(response.score) : 0;
         let newScore = (oldScore + 1);
         chrome.storage.sync.set({ score: newScore }, function(response) {
-          console.log('savedtostorage score');
         });
         $hitPopup = $('#find-trump-popup');
         $hitPopup.html(chrome.i18n.getMessage('popup_found') + '<br />' + chrome.i18n.getMessage('popup_score') + ': ' + newScore);
@@ -66,7 +64,7 @@ $(function() {
         $hitPopup.fadeIn('slow');
         $targetImg.attr({ src: origImgSrc });
         $hitPopup.delay(1500).queue(function() {
-//          $(this).fadeOut('slow').dequeue();
+          $(this).fadeOut('slow').dequeue();
         });
       });
       return false;
@@ -78,7 +76,6 @@ $(function() {
     if (response.prob) {
       execProb = parseInt(response.prob);
     }
-    console.log(execProb);
     if (getRandInt(1, execProb) == execProb) {
       startGame();
     }
