@@ -49,10 +49,10 @@ $(function() {
         return false;
       }
       alreadyClicked = true;
-      chrome.storage.local.get('score', function(response) {
+      chrome.storage.sync.get('score', function(response) {
         let oldScore = response.score ? parseInt(response.score) : 0;
         let newScore = (oldScore + 1);
-        chrome.storage.local.set({ score: newScore }, function(response) {
+        chrome.storage.sync.set({ score: newScore }, function(response) {
           console.log('savedtostorage score');
         });
         $hitPopup = $('#find-trump-popup');
@@ -73,7 +73,7 @@ $(function() {
     });
   }
 
-  chrome.storage.local.get('prob', function(response) {
+  chrome.storage.sync.get('prob', function(response) {
     let execProb = 10; // 逆数が確率になる
     if (response.prob) {
       execProb = parseInt(response.prob);
