@@ -1,5 +1,14 @@
 {
   "extDescription": {
     "message": "トランプを見つけろ！"
+  },
+  "popup_found": {
+    "message": "トランプを見つけた！"
+  },
+  "popup_score": {
+    "message": "スコア"
+  },
+  "option_prob": {
+    "message": "トランプの出現率"
   }
 }

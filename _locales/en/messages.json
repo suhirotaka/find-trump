@@ -1,5 +1,14 @@
 {
   "extDescription": {
     "message": "Finc Trump!"
+  },
+  "popup_found": {
+    "message": "Found Trump!"
+  },
+  "popup_score": {
+    "message": "Score"
+  },
+  "option_prob": {
+    "message": "How often Trump appears"
   }
 }

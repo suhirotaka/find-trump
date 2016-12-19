@@ -2,7 +2,6 @@ function getRandInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 $(function() {
-  const EXEC_PROB = 1 // 逆数が確率になる
   const TRUMP_IMGS = [
     "185800a0a3a923b9fe1bda08be8a7c4c.jpeg",
     "89a96eebe4db829a629b2b43cc87240a.jpeg",
@@ -31,13 +30,14 @@ $(function() {
     "e4d3fe6ab91a1b8858642e73010822d7.jpeg"
   ];
 
-  if (getRandInt(1, EXEC_PROB) == EXEC_PROB) {
+  let startGame = function() {
     let $imgs = $('img:visible');
     if ($imgs.length == 0) {
       return;
     }
     let imgIndex = getRandInt(0, $imgs.length);
     let $targetImg = $($imgs[imgIndex]);
+    let origImgSrc = $targetImg.attr('src');
     $targetImg.attr({ src:  chrome.extension.getURL('imgs/trump/' + TRUMP_IMGS[getRandInt(0, TRUMP_IMGS.length - 1)]) });
 
     $('<div id="find-trump-popup">test</div>').appendTo('body');
@@ -52,21 +52,35 @@ $(function() {
       chrome.storage.local.get('score', function(response) {
         let oldScore = response.score ? parseInt(response.score) : 0;
         let newScore = (oldScore + 1);
-        console.log(newScore);
         chrome.storage.local.set({ score: newScore }, function(response) {
-          console.log('savedtostorage');
+          console.log('savedtostorage score');
         });
         $hitPopup = $('#find-trump-popup');
-        $hitPopup.html('You hit!<br />Score:' + newScore);
+        $hitPopup.html(chrome.i18n.getMessage('popup_found') + '<br />' + chrome.i18n.getMessage('popup_score') + ': ' + newScore);
         let popupWidthMatched = $hitPopup.css('width').match(/[0-9]+/);
         let popupWidth = popupWidthMatched ? popupWidthMatched[0] : 0;
         let popupHeightMatched = $hitPopup.css('height').match(/[0-9]+/);
         let popupHeight = popupHeightMatched ? popupHeightMatched[0] : 0;
         $hitPopup.css('left', event.pageX - popupWidth / 2);
         $hitPopup.css('top', event.pageY - popupHeight - 10); // :after擬似要素のmarginをハードコーディング
-        $hitPopup.css('display', 'inline');
+        $hitPopup.fadeIn('slow');
+        $targetImg.attr({ src: origImgSrc });
+        $hitPopup.delay(1500).queue(function() {
+//          $(this).fadeOut('slow').dequeue();
+        });
       });
       return false;
     });
   }
+
+  chrome.storage.local.get('prob', function(response) {
+    let execProb = 10; // 逆数が確率になる
+    if (response.prob) {
+      execProb = parseInt(response.prob);
+    }
+    console.log(execProb);
+    if (getRandInt(1, execProb) == execProb) {
+      startGame();
+    }
+  });
 });
