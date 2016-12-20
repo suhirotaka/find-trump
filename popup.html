@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Test Extension Popup</title>
+  <title>FindTrump! Popup</title>
   <style type="text/css">
     <!--
     body {
       width: 200px;
+      text-align: center;
     }
     th, td {
       padding: 5px;
     }
-    th {
-      text-align: center;
+    #your-score {
+      font-weight: bold;
+      font-size: 110%;
     }
-    .link {
-      text-align: center;
+    #popup-desc {
+      text-align: left;
     }
-    .score {
-      text-align: center;
+    .name {
+      text-align: left;
     }
     -->
   </style>
 </head>
 <body>
+  <p id="your-score"></p>
   <p id="popup-desc"></p>
   <p class="link"><a id="link-to-option" href="#"></a></p>
   <table>
@@ -31,23 +34,23 @@
       <th>Score</th>
     </tr>
     <tr>
-      <td></td>
+      <td class="name"></td>
       <td class="score"></td>
     </tr>
     <tr>
-      <td></td>
+      <td class="name"></td>
       <td class="score"></td>
     </tr>
     <tr>
-      <td></td>
+      <td class="name"></td>
       <td class="score"></td>
     </tr>
     <tr>
-      <td></td>
+      <td class="name"></td>
       <td class="score"></td>
     </tr>
     <tr>
-      <td></td>
+      <td class="name"></td>
       <td class="score"></td>
     </tr>
   </table>

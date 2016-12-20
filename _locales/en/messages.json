@@ -1,12 +1,12 @@
 {
   "extDescription": {
-    "message": "Finc Trump!"
+    "message": "Can you find Trump hiding in you webpage?"
   },
   "popup_found": {
     "message": "Found Trump!"
   },
   "popup_score": {
-    "message": "Score"
+    "message": "Your Score"
   },
   "option_prob": {
     "message": "How often Trump appears"
