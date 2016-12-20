@@ -10,5 +10,11 @@
   },
   "option_prob": {
     "message": "トランプの出現率"
+  },
+  "popup_desc": {
+    "message": "このユーザーランキングはトランプに乗っ取られています。"
+  },
+  "link_to_option": {
+    "message": "オプションページへ"
   }
 }

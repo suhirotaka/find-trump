@@ -1,6 +1,3 @@
-function getRandInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 $(function() {
   const TRUMP_IMGS = [
     "185800a0a3a923b9fe1bda08be8a7c4c.jpeg",

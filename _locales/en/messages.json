@@ -10,5 +10,11 @@
   },
   "option_prob": {
     "message": "How often Trump appears"
+  },
+  "popup_desc": {
+    "message": "The user ranking has been hacked by Trump."
+  },
+  "link_to_option": {
+    "message": "Go to options page"
   }
 }
