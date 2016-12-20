@@ -56,8 +56,8 @@ $(function() {
         let popupWidth = popupWidthMatched ? popupWidthMatched[0] : 0;
         let popupHeightMatched = $hitPopup.css('height').match(/[0-9]+/);
         let popupHeight = popupHeightMatched ? popupHeightMatched[0] : 0;
-        $hitPopup.css('left', event.pageX - popupWidth / 2);
-        $hitPopup.css('top', event.pageY - popupHeight - 10); // :after擬似要素のmarginをハードコーディング
+        $hitPopup.css('left', Math.max(0, event.pageX - popupWidth / 2));
+        $hitPopup.css('top', Math.max(0, event.pageY - popupHeight - 10)); // :after擬似要素のmarginをハードコーディング
         $hitPopup.fadeIn('slow');
         $targetImg.attr({ src: origImgSrc });
         $hitPopup.delay(1500).queue(function() {
