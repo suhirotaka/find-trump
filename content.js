@@ -71,6 +71,9 @@ $(function() {
   chrome.storage.sync.get('prob', function(response) {
     let execProb = 10; // 逆数が確率になる
     if (response.prob) {
+      if (response.prob == 'none') {
+        return;
+      }
       execProb = parseInt(response.prob);
     }
     if (getRandInt(1, execProb) == execProb) {
