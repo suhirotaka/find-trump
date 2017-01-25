@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Find Trump!",
+  "name": "Find Mako!",
   "version": "1.0.0",
 
   "default_locale": "en",
@@ -12,7 +12,7 @@
   },
 
   "browser_action": {
-    "default_title": "Find Trump!",
+    "default_title": "Find Mako!",
     "default_icon": "icon32.png",
     "default_popup": "popup.html"
   },

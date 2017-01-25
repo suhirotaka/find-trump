@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Usage: `./build.sh mako`
+
 if [ -z "$1" ]; then
   echo "Build target not specified."
   exit 1
@@ -10,6 +12,6 @@ if [ ! -e "./variations/$1" ]; then
 fi
 rm -rf ./.build
 mkdir ./.build
-rsync -av --exclude='.*' --exclude='variations/' --exclude='build.sh' --exclude='README.md' ./ ./.build
+rsync -av --exclude='.*' --exclude='variations/' --exclude='crawlCharactorImgs.js' --exclude='*.sh' --exclude='README.md' ./ ./.build
 cp -r ./variations/$1/* ./.build
 echo "Successfully built $1."
