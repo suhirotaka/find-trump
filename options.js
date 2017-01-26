@@ -1,4 +1,6 @@
 $(function() {
+  document.title = chrome.i18n.getMessage('extName') + ' Options Page';
+  $('#header-title').text(chrome.i18n.getMessage('extName') + ' Options Page');
   $('#options-title').text(chrome.i18n.getMessage('option_prob') + ': ');
   chrome.storage.sync.get('prob', function(response) {
     let prob = response.prob ? response.prob : 10;

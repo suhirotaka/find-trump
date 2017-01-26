@@ -1,6 +1,7 @@
 $(function() {
-  $('#popup-desc').text(chrome.i18n.getMessage('popup_desc'))
-  $('#link-to-option').text(chrome.i18n.getMessage('link_to_option'))
+  document.title = chrome.i18n.getMessage('extName') + ' Popup Page';
+  $('#popup-desc').text(chrome.i18n.getMessage('popup_desc'));
+  $('#link-to-option').text(chrome.i18n.getMessage('link_to_option'));
   $('#link-to-option').click(function() {
     chrome.runtime.openOptionsPage();
   });

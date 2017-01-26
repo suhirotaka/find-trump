@@ -1,4 +1,7 @@
 {
+  "extName": {
+    "message": "Find Mako!"
+  },
   "extDescription": {
     "message": "ウェブページに隠れている満艦飾マコを見つけましょう！"
   },
