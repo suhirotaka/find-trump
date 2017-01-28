@@ -1,0 +1,23 @@
+{
+  "extName": {
+    "message": "Find Mako!"
+  },
+  "extDescription": {
+    "message": "ウェブページに隠れている満艦飾マコを見つけましょう！"
+  },
+  "popup_found": {
+    "message": "マコを見つけた！"
+  },
+  "popup_score": {
+    "message": "現在のスコア"
+  },
+  "option_prob": {
+    "message": "マコの出現率"
+  },
+  "popup_desc": {
+    "message": "このユーザーランキングはマコにハックされています。"
+  },
+  "link_to_option": {
+    "message": "オプションページへ"
+  }
+}

@@ -1,4 +1,7 @@
 {
+  "extName": {
+    "message": "Find Trump!"
+  },
   "extDescription": {
     "message": "ウェブページに隠れているトランプを見つけましょう！"
   },

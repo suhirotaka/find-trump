@@ -1,0 +1,23 @@
+{
+  "extName": {
+    "message": "Find Mako!"
+  },
+  "extDescription": {
+    "message": "Can you find Mako Mankanshoku hiding in webpages?"
+  },
+  "popup_found": {
+    "message": "Found Mako!"
+  },
+  "popup_score": {
+    "message": "Your Score"
+  },
+  "option_prob": {
+    "message": "How often Mako appears"
+  },
+  "popup_desc": {
+    "message": "The user ranking has been hacked by Mako."
+  },
+  "link_to_option": {
+    "message": "Go to options page"
+  }
+}

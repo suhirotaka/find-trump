@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Find Trump!",
+  "name": "__MSG_extName__",
   "version": "1.0.0",
 
   "default_locale": "en",
@@ -12,8 +12,11 @@
   },
 
   "browser_action": {
-    "default_title": "Find Trump",
-    "default_icon": "icon32.png",
+    "default_title": "Find Trump!",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png"
+    },
     "default_popup": "popup.html"
   },
   "background": {
@@ -22,7 +25,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["jquery.min.js", "util.js", "content.js"],
+      "js": ["jquery.min.js", "util.js", "constants.js", "content.js"],
       "css": ["content.css"]
     }
   ],
@@ -31,9 +34,9 @@
     "storage", "*://*/*"
   ],
   "web_accessible_resources": [
-    "imgs/trump/*.png",
-    "imgs/trump/*.gif",
-    "imgs/trump/*.jpeg",
-    "imgs/trump/*.jpg"
+    "imgs/charactor/*.png",
+    "imgs/charactor/*.gif",
+    "imgs/charactor/*.jpeg",
+    "imgs/charactor/*.jpg"
   ]
 }
